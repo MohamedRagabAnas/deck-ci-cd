@@ -13,7 +13,6 @@ plugins:
   - https
 services:
 - connect_timeout: 60000
-  enabled: true
   host: mockbin.org
   name: svc1
   port: 443
