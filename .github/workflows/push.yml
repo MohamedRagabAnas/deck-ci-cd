@@ -3,8 +3,6 @@ on: push
 jobs:
   deck-sync:
     runs-on: ubuntu-latest
-    volumes:
-       - ./:/home/
     steps:
       - name: Setup deck
         uses: kong/setup-deck@v1
@@ -14,5 +12,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Run deck sync
         run: deck sync -s ../../kong.yaml
+    uses: ../../
 
 
