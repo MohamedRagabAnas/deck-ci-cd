@@ -3,6 +3,8 @@ on: push
 jobs:
   deck-sync:
     runs-on: ubuntu-latest
+    volumes:
+       - ./:/home/jovyan/work/data
     steps:
       - name: Setup deck
         uses: kong/setup-deck@v1
