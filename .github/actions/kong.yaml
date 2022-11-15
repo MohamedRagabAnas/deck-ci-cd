@@ -12,7 +12,6 @@ plugins:
   - http
   - https
 services:
-
 - connect_timeout: 60000
   enabled: true
   host: mockbin.org
