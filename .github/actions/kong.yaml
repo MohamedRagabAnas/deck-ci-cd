@@ -15,7 +15,7 @@ services:
 - connect_timeout: 60000
   host: mockbin.org
   name: svc1
-  port: 443s
+  port: 443
   protocol: http
   read_timeout: 60000
   retries: 5
