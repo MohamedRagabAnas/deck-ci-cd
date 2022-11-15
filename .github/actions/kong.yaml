@@ -1,29 +1,37 @@
-
+_format_version: "3.0"
+plugins:
+- config:
+    bandwidth_metrics: false
+    latency_metrics: false
+    per_consumer: false
+    status_code_metrics: false
+    upstream_health_metrics: false
+  enabled: true
+  name: prometheus
+  protocols:
+  - http
+  - https
 services:
-- host: api.bookstore.com
-  name: Book_Store
-  path: /v1
-  port: 80
+
+- connect_timeout: 60000
+  enabled: true
+  host: mockbin.org
+  name: svc1
+  port: 443
   protocol: http
+  read_timeout: 60000
+  retries: 5
   routes:
-  - methods:
-    - GET
-    name: Book_Store-findByName-get
+  - https_redirect_status_code: 302
+    name: r1
+    path_handling: v0
     paths:
-    - ~/findByName$
-    strip_path: false
-    tags:
-    - OAS3_import
-    - OAS3file_openapi3.yaml
-  - methods:
-    - GET
-    name: Book_Store-findByStatus-get
-    paths:
-    - ~/findByStatus$
-    strip_path: false
-    tags:
-    - OAS3_import
-    - OAS3file_openapi3.yaml
-  tags:
-  - OAS3_import
-  - OAS3file_openapi3.yaml
+    - /r1
+    preserve_host: false
+    protocols:
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  write_timeout: 60000
