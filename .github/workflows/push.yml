@@ -12,6 +12,5 @@ jobs:
         uses: actions/checkout@v2
       - name: Run deck sync
         run: deck sync -s ./.github/actions/kong.yaml
-      # uses: ./.github/actions/kong.yaml
 
 
