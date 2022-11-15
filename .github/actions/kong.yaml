@@ -1,4 +1,4 @@
-_format_version: "3.0"
+
 services:
 - host: api.bookstore.com
   name: Book_Store
