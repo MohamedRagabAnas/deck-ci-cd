@@ -1,7 +1,6 @@
 _format_version: "3.0"
 services:
 - connect_timeout: 60000
-  enabled: true
   host: api.bookstore.com
   name: Book_Store
   path: /v1
@@ -54,7 +53,6 @@ services:
   - inso-generated
   write_timeout: 60000
 - connect_timeout: 60000
-  enabled: true
   host: 0.0.0.0
   name: docker_service
   plugins:
@@ -80,7 +78,7 @@ services:
       redis_username: null
       second: 10
       year: null
-    enabled: true
+
     name: rate-limiting
     protocols:
     - grpc
@@ -107,7 +105,6 @@ services:
     strip_path: true
   write_timeout: 60000
 - connect_timeout: 60000
-  enabled: true
   host: 0.0.0.0
   name: docker_users_service
   path: /users
@@ -131,7 +128,6 @@ services:
     strip_path: true
   write_timeout: 60000
 - connect_timeout: 60000
-  enabled: true
   host: localhost
   name: people_service
   port: 3030
@@ -154,7 +150,6 @@ services:
     strip_path: true
   write_timeout: 60000
 - connect_timeout: 60000
-  enabled: true
   host: 127.0.0.1
   name: xai_explainImage_service
   path: /explain/image
@@ -178,7 +173,6 @@ services:
     strip_path: true
   write_timeout: 60000
 - connect_timeout: 60000
-  enabled: true
   host: 127.0.0.1
   name: xai_predictImage_service
   path: /predict/image
@@ -202,7 +196,6 @@ services:
     strip_path: true
   write_timeout: 60000
 - connect_timeout: 60000
-  enabled: true
   host: 127.0.0.1
   name: xai_service
   path: /building/docs
