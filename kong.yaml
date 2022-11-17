@@ -1,0 +1,227 @@
+_format_version: "3.0"
+services:
+- connect_timeout: 60000
+  enabled: true
+  host: api.bookstore.com
+  name: Book_Store
+  path: /v1
+  port: 80
+  protocol: http
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - https_redirect_status_code: 426
+    methods:
+    - GET
+    name: Book_Store-findByName-get
+    path_handling: v0
+    paths:
+    - ~/findByName$
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: false
+    tags:
+    - OAS3_import
+    - OAS3file_openapi3.yaml
+    - inso-generated
+  - https_redirect_status_code: 426
+    methods:
+    - GET
+    name: Book_Store-findByStatus-get
+    path_handling: v0
+    paths:
+    - ~/findByStatus$
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: false
+    tags:
+    - OAS3_import
+    - OAS3file_openapi3.yaml
+    - inso-generated
+  tags:
+  - OAS3_import
+  - OAS3file_openapi3.yaml
+  - inso-generated
+  write_timeout: 60000
+- connect_timeout: 60000
+  enabled: true
+  host: 0.0.0.0
+  name: docker_service
+  plugins:
+  - config:
+      day: null
+      fault_tolerant: true
+      header_name: null
+      hide_client_headers: false
+      hour: 10000
+      limit_by: consumer
+      minute: null
+      month: null
+      path: null
+      policy: local
+      redis_database: 0
+      redis_host: null
+      redis_password: null
+      redis_port: 6379
+      redis_server_name: null
+      redis_ssl: false
+      redis_ssl_verify: false
+      redis_timeout: 2000
+      redis_username: null
+      second: 10
+      year: null
+    enabled: true
+    name: rate-limiting
+    protocols:
+    - grpc
+    - grpcs
+    - http
+    - https
+  port: 80
+  protocol: http
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - https_redirect_status_code: 426
+    name: docker_hello_route
+    path_handling: v0
+    paths:
+    - /hello
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  write_timeout: 60000
+- connect_timeout: 60000
+  enabled: true
+  host: 0.0.0.0
+  name: docker_users_service
+  path: /users
+  port: 80
+  protocol: http
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - https_redirect_status_code: 426
+    name: docker_users_route
+    path_handling: v0
+    paths:
+    - /users
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  write_timeout: 60000
+- connect_timeout: 60000
+  enabled: true
+  host: localhost
+  name: people_service
+  port: 3030
+  protocol: http
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - https_redirect_status_code: 426
+    name: people_route
+    path_handling: v0
+    paths:
+    - /people
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  write_timeout: 60000
+- connect_timeout: 60000
+  enabled: true
+  host: 127.0.0.1
+  name: xai_explainImage_service
+  path: /explain/image
+  port: 30000
+  protocol: http
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - https_redirect_status_code: 426
+    name: xai_explainImage_route
+    path_handling: v0
+    paths:
+    - /explainImage
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  write_timeout: 60000
+- connect_timeout: 60000
+  enabled: true
+  host: 127.0.0.1
+  name: xai_predictImage_service
+  path: /predict/image
+  port: 30000
+  protocol: http
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - https_redirect_status_code: 426
+    name: xai_predictImage_route
+    path_handling: v0
+    paths:
+    - /predictImage
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  write_timeout: 60000
+- connect_timeout: 60000
+  enabled: true
+  host: 127.0.0.1
+  name: xai_service
+  path: /building/docs
+  port: 30000
+  protocol: http
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - https_redirect_status_code: 426
+    name: xai_route
+    path_handling: v0
+    paths:
+    - /building
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  write_timeout: 60000
