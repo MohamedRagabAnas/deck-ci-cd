@@ -1,8 +1,6 @@
 name: Run deck 
 on: push
 
-env:
-  KONG_ADMIN_LISTEN: "0.0.0.0:8001"
 jobs:
   deck-sync:
     runs-on: ubuntu-latest
@@ -14,6 +12,6 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v2
       - name: Run deck sync
-        run: deck sync --kong-addr http://127.0.0.1:8001
+        run: deck sync --kong-addr http://localhost:8001
 
 
