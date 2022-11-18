@@ -4,9 +4,6 @@ on: push
 jobs:
   deck-sync:
     runs-on: ubuntu-latest
-    env:
-      URL: ${{ secrets.KONG_ADDR }}
-      METHOD: GET  # the method used to make the request. It is GET by default
     steps:
       - name: Setup deck
         uses: kong/setup-deck@v1
@@ -14,9 +11,9 @@ jobs:
           deck-version: "1.8.0"
       - name: decK ping
         id: decK_ping
-        uses: sisodiya2421/pinger@master
+        uses: soul-wish/ping-url-javascript-action@v1.1
         with:
-          command: "ping ${{ secrets.KONG_ADDR }}"
+          url: "${{ secrets.KONG_ADDR }}"
       - name: Clone repo
         uses: actions/checkout@v2
       - name: Run deck sync
