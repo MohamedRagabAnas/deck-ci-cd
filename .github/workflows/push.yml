@@ -12,6 +12,6 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v2
       - name: Run deck sync
-        run: deck sync --kong-addr http://localhost:8001
+        run: deck sync --kong-addr ${{ secrets.KONG_ADDR }}
 
 
