@@ -1,5 +1,8 @@
 name: Run deck 
 on: push
+
+env:
+  KONG_ADMIN_LISTEN: "0.0.0.0:8001"
 jobs:
   deck-sync:
     runs-on: ubuntu-latest
