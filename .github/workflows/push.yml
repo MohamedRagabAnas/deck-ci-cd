@@ -11,7 +11,6 @@ jobs:
           inso-version: 3.5.0
           wrapper: true
         run: inso --version
-        id: inso_version
         run: echo '${{ toJson(steps.inso_version.outputs) }}'
         
       - name: Setup deck
