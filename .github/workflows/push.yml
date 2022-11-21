@@ -5,6 +5,15 @@ jobs:
   deck-sync:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup inso
+      - uses: kong/setup-inso@v1
+        with:
+          inso-version: 3.5.0
+          wrapper: true
+      - run: inso --version
+        id: inso_version
+      - run: echo '${{ toJson(steps.inso_version.outputs) }}'
+        
       - name: Setup deck
         uses: kong/setup-deck@v1
         with:
