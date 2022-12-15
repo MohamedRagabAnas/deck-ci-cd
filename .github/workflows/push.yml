@@ -22,10 +22,10 @@ jobs:
         id: decK_ping
         uses: soul-wish/ping-url-javascript-action@v1.1
         with:
-          url: https://ec2-52-90-252-97.compute-1.amazonaws.com/8001/
+          url: http://ec2-52-90-252-97.compute-1.amazonaws.com/8001/
       - name: Clone repo
         uses: actions/checkout@v2
       - name: Run deck sync
-        run: deck sync --kong-addr https://ec2-52-90-252-97.compute-1.amazonaws.com/8001/
+        run: deck sync --kong-addr http://ec2-52-90-252-97.compute-1.amazonaws.com/8001/
 
 
